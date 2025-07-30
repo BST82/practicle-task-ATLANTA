@@ -1,10 +1,16 @@
 <!-- location-group.component.html -->
-<mat-accordion>
+<mat-accordion class="location-accordion">
   <mat-expansion-panel [(expanded)]="panelOpenState">
     <mat-expansion-panel-header>
-      <mat-panel-title>{{ location }}</mat-panel-title>
+      <mat-panel-title>
+        <div class="location-title">
+          <mat-icon>location_on</mat-icon>
+          {{ location }}
+        </div>
+      </mat-panel-title>
       <mat-panel-description>
-        {{ vehicles.length }} vehicles
+        <div class="vehicle-count">{{ vehicles.length }}</div>
+        vehicles
       </mat-panel-description>
     </mat-expansion-panel-header>
 

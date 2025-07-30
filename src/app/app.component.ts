@@ -7,6 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-root',
@@ -35,25 +37,36 @@ export class AppComponent {
     return obj;
   }
 
-  saveAssignments() {
-    this.assignments$.subscribe(assignments => {
-      const grouped: GroupedAssignment = {};
+ saveAssignments() {
+  this.assignments$.subscribe(assignments => {
+    const grouped: GroupedAssignment = {};
+    
+    this.fleetService.getVehicles().forEach(vehicle => {
+      const driverId = assignments[vehicle.id];
+      const driver = driverId 
+        ? this.fleetService.getDrivers().find(d => d.id === driverId)?.name || null
+        : null;
       
-      this.fleetService.getVehicles().forEach(vehicle => {
-        const driverId = assignments[vehicle.id];
-        const driver = driverId 
-          ? this.fleetService.getDrivers().find(d => d.id === driverId)?.name || null
-          : null;
-        
-        grouped[vehicle.location] = grouped[vehicle.location] || [];
-        grouped[vehicle.location].push({
-          vehicle: vehicle.name,
-          driver: driver
-        });
+      grouped[vehicle.location] = grouped[vehicle.location] || [];
+      grouped[vehicle.location].push({
+        vehicle: vehicle.name,
+        driver: driver
       });
-
-      console.log('Saved assignments:', grouped);
-      alert('Assignments saved successfully! Check console for output.');
     });
-  }
+
+    console.log('Saved assignments:', grouped);
+
+  
+  Swal.fire({
+  title: 'Success!',
+  text: 'Assignments have been saved.',
+  icon: 'success',
+  showConfirmButton: true,
+  confirmButtonText: 'Great!',
+  timer: 3000,
+  timerProgressBar: true
+});
+
+  });
+}
 }
