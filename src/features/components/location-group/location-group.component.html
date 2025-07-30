@@ -1,0 +1,17 @@
+<!-- location-group.component.html -->
+<mat-accordion>
+  <mat-expansion-panel [(expanded)]="panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ location }}</mat-panel-title>
+      <mat-panel-description>
+        {{ vehicles.length }} vehicles
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="vehicle-grid">
+      @for (vehicle of vehicles; track vehicle.id) {
+        <app-vehicle-card [vehicle]="vehicle"></app-vehicle-card>
+      }
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

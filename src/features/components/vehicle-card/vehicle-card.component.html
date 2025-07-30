@@ -1,0 +1,37 @@
+<mat-card [class.unassigned]="!selectedDriver">
+  <mat-card-header>
+    <mat-card-title>
+      {{ vehicle.name }}
+      <!-- Display driver name next to vehicle name -->
+      @if (assignedDriverName) {
+        <span class="driver-name">(Driver: {{ assignedDriverName }})</span>
+      }
+    </mat-card-title>
+    <mat-card-subtitle>IMEI: {{ vehicle.imei }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="status-row">
+      <span>Status:</span>
+      <app-status-chip [status]="vehicle.status"></app-status-chip>
+    </div>
+
+    <div>Last seen: {{ getLastSeenMinutes() }}</div>
+
+    @if (!selectedDriver) {
+      <div class="warning">No driver assigned!</div>
+    }
+  </mat-card-content>
+
+  <mat-card-actions>
+    <mat-form-field appearance="fill">
+      <mat-label>Assign driver</mat-label>
+      <mat-select [(ngModel)]="selectedDriver" (selectionChange)="onDriverChange()">
+        <mat-option [value]="null">-- None --</mat-option>
+        @for (driver of availableDrivers; track driver.id) {
+          <mat-option [value]="driver.id">{{ driver.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </mat-card-actions>
+</mat-card>
