@@ -69,6 +69,73 @@ export class FleetService {
       location: 'Mumbai',
       status: 'Offline',
       lastSeen: '2025-07-30T09:45:00Z'
+    },
+    // Additional Ahmedabad vehicles (total 4)
+    {
+      id: 9,
+      name: 'GJ06KL1234',
+      imei: '357891234567890',
+      location: 'Ahmedabad',
+      status: 'Running',
+      lastSeen: '2025-07-30T10:35:00Z'
+    },
+    {
+      id: 10,
+      name: 'GJ07MN5678',
+      imei: '357892345678901',
+      location: 'Ahmedabad',
+      status: 'Idle',
+      lastSeen: '2025-07-30T09:55:00Z'
+    },
+    {
+      id: 11,
+      name: 'GJ08OP9012',
+      imei: '357893456789012',
+      location: 'Ahmedabad',
+      status: 'Offline',
+      lastSeen: '2025-07-30T08:45:00Z'
+    },
+    // Additional Bengaluru vehicles (total 3)
+    {
+      id: 12,
+      name: 'KA04QR3456',
+      imei: '351235678901234',
+      location: 'Bengaluru',
+      status: 'Idle',
+      lastSeen: '2025-07-30T10:22:00Z'
+    },
+    {
+      id: 13,
+      name: 'KA05ST7890',
+      imei: '351236789012345',
+      location: 'Bengaluru',
+      status: 'Running',
+      lastSeen: '2025-07-30T10:18:00Z'
+    },
+    // Additional Chennai vehicles (total 4)
+    {
+      id: 14,
+      name: 'TN05UV6789',
+      imei: '358766543210987',
+      location: 'Chennai',
+      status: 'Running',
+      lastSeen: '2025-07-30T10:30:00Z'
+    },
+    {
+      id: 15,
+      name: 'TN06WX0123',
+      imei: '358767654321098',
+      location: 'Chennai',
+      status: 'Offline',
+      lastSeen: '2025-07-30T09:20:00Z'
+    },
+    {
+      id: 16,
+      name: 'TN07YZ4567',
+      imei: '358768765432109',
+      location: 'Chennai',
+      status: 'Idle',
+      lastSeen: '2025-07-30T10:05:00Z'
     }
   ];
 

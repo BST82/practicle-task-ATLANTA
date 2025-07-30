@@ -1,4 +1,4 @@
-import { Component, Input, inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, inject, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
@@ -8,7 +8,7 @@ import { StatusChipComponent } from '../status-chip/status-chip.component';
 import { FleetService } from '../../../app/services/fleet.service';
 import { Vehicle, Driver } from '../../../core/models/fleet.models';
 import { Subscription } from 'rxjs';
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-vehicle-card',
   standalone: true,
@@ -19,9 +19,11 @@ import { Subscription } from 'rxjs';
     MatFormFieldModule,
     FormsModule,
     StatusChipComponent,
+    MatIconModule
   ],
   templateUrl: './vehicle-card.component.html',
   styleUrls: ['./vehicle-card.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class VehicleCardComponent implements OnInit, OnDestroy {
   private fleetService = inject(FleetService);

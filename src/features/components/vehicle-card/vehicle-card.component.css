@@ -1,0 +1,144 @@
+/* Theme colors from Angular Material palettes */
+:root {
+  --primary-50: #9ed4eb;
+  --primary-100: #21a7e0;
+  --primary-300: #5984da;
+  --primary-500: #1b2870;
+  --primary-600: #000000;
+  --primary-700: #bf0fef;
+  --primary-900: #01020a;
+
+  --accent-500: #e91e63;
+
+  --warn-50: #4e0909;
+ 
+  --warn-700: #d32f2f;
+}
+
+/* Card container styles */
+mat-card {
+  max-width: 400px;
+  margin: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+mat-card.unassigned {
+  border-left: 4px solid var(--warn-500);
+  background-color: var(--warn-50);
+}
+
+mat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Card header styles */
+mat-card-header {
+  padding: 16px 16px 8px;
+  background: linear-gradient(to right, var(--primary-50), var(--primary-100));
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+mat-card-title {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary-900);
+}
+
+mat-card-title .driver-name {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primary-600);
+  background-color: var(--primary-50);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+mat-card-subtitle {
+  color: var(--primary-600);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Card content styles */
+mat-card-content {
+  padding: 16px;
+}
+
+mat-card-content .status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+mat-card-content .status-row span {
+  font-weight: 500;
+  color: var(--primary-700);
+}
+
+mat-card-content .warning {
+  color: var(--warn-700);
+  background-color: var(--warn-50);
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+mat-card-content .warning::before {
+  content: '⚠';
+  font-size: 16px;
+}
+
+/* Card actions styles */
+mat-card-actions {
+  padding: 8px 16px 16px;
+  background-color: var(--primary-50);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+mat-card-actions mat-form-field {
+  width: 100%;
+}
+
+mat-card-actions mat-form-field .mat-mdc-form-field {
+  --mdc-outlined-text-field-outline-color: var(--primary-300);
+  --mdc-outlined-text-field-hover-outline-color: var(--primary-500);
+  --mdc-outlined-text-field-focus-outline-color: var(--primary-700);
+}
+
+mat-card-actions mat-form-field mat-label {
+  color: var(--primary-600);
+}
+
+mat-card-actions mat-form-field mat-select .mdc-text-field--filled {
+  background-color: white;
+  border-radius: 4px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  mat-card {
+    max-width: 100%;
+    margin: 8px;
+  }
+
+  mat-card-title {
+    font-size: 18px;
+  }
+
+  mat-card-title .driver-name {
+    font-size: 12px;
+  }
+}

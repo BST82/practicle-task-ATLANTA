@@ -1,73 +1,182 @@
-/* Panel container */
+/* location-group.component.css */
+
+/* Expansion Panel Styling */
 ::ng-deep mat-expansion-panel {
-  background-color: #ffffff !important;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: #f8f9ff !important;
+  border-radius: 16px !important;
+  margin-bottom: 20px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid #e9ecef;
+}
+
+::ng-deep mat-expansion-panel:hover {
+  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.15) !important;
+  transform: translateY(-2px);
 }
 
 ::ng-deep mat-expansion-panel.mat-expanded {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transform: scale(1.01);
+  box-shadow: 0 8px 30px rgba(67, 97, 238, 0.2) !important;
+  transform: translateY(-4px);
+  z-index: 10;
 }
 
-/* Panel header */
+::ng-deep mat-expansion-panel.mat-expanded mat-expansion-panel-header {
+  background: linear-gradient(135deg, #98c2e9, #90c7cc) !important;
+}
+
+::ng-deep mat-expansion-panel.mat-expanded mat-expansion-panel-header .mat-expansion-indicator::after {
+  color: white !important;
+}
+
+/* Expansion Panel Header */
 ::ng-deep mat-expansion-panel-header {
-  background-color: #f8f9fa !important;
-  color: #212529;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 18px 24px;
-  border-bottom: 1px solid #e1e1e1;
-  transition: background-color 0.3s;
-  cursor: pointer;
+  background: #f8f9ff !important;
+  height: 70px !important;
+  padding: 0 24px !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease;
 }
 
-/* Hover effect on header */
 ::ng-deep mat-expansion-panel-header:hover {
-  background-color: #eef1f4 !important;
-}
-::ng-deep mat-expansion-panel-header {
-  background-color: rgb(185, 186, 207) !important;
-  margin: 20px;
+  background: #e5e6f2 !important; /* darken(#f8f9ff, 2%) approx */
 }
 
-/* Title and subtitle */
-::ng-deep mat-panel-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #343a40;
+::ng-deep mat-expansion-panel-header .mat-content {
+  align-items: center;
 }
 
-::ng-deep mat-panel-description {
-  font-size: 13px;
-  color: #6c757d;
-}
-::ng-deep .mat-expansion-panel-header-title {
-  color: black !important;
-}
-::ng-deep .mat-expansion-panel-header-description{
-  color: black !important;
+::ng-deep .mat-expansion-panel-header-title,
+::ng-deep .mat-expansion-panel-header-description {
+  color: #2b2d42 !important;
+  font-weight: 600 !important;
+  transition: color 0.3s ease;
 }
 
-/* Indicator arrow */
-::ng-deep mat-expansion-indicator::after {
-  color: #666;
-  font-size: 18px;
+::ng-deep .mat-expansion-panel-header-description {
+  font-size: 14px !important;
+  margin-top: 4px;
 }
 
-/* Vehicle card grid layout */
+::ng-deep .mat-expansion-indicator::after {
+  color: #4361ee !important;
+  transform: scale(1.3);
+}
+
+/* Modern expansion indicator animation */
+::ng-deep .mat-expansion-indicator {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::ng-deep .mat-expansion-indicator::after {
+  transition: color 0.3s ease;
+}
+
+::ng-deep .mat-expanded .mat-expansion-indicator {
+  transform: rotate(180deg);
+}
+
+/* Vehicle Grid */
 .vehicle-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  /* padding: 24px; */
-  background-color: #fafafa;
+  gap: 24px;
+  padding: 24px;
+  background-color: transparent;
 }
 
-/* Mobile responsiveness */
+/* Manual staggered animation for 16 vehicle cards */
+.vehicle-grid app-vehicle-card:nth-child(1) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 100ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(2) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 200ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(3) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 300ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(4) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 400ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(5) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 500ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(6) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 600ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(7) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 700ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(8) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 800ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(9) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 900ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(10) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 1000ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(11) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 1100ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(12) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 1200ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(13) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 1300ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(14) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 1400ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(15) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 1500ms;
+}
+.vehicle-grid app-vehicle-card:nth-child(16) {
+  animation: cardEntrance 0.5s ease-out backwards;
+  animation-delay: 1600ms;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Vehicle Count Badge */
+.vehicle-count {
+  background: #b071ef;
+  color: white !important;
+  border-radius: 12px;
+  padding: 2px 12px;
+  font-size: 12px !important;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-right: 20px;
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.3);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .vehicle-grid {
     grid-template-columns: 1fr;
@@ -76,14 +185,27 @@
   }
 
   ::ng-deep mat-expansion-panel-header {
-    padding: 14px 18px;
+    height: 60px !important;
+    padding: 0 16px !important;
   }
 
-  ::ng-deep mat-panel-title {
-    font-size: 15px;
+  ::ng-deep .mat-expansion-panel-header-title,
+  ::ng-deep .mat-expansion-panel-header-description {
+    font-size: 14px !important;
   }
 
-  ::ng-deep mat-panel-description {
-    font-size: 12px;
+  .vehicle-count {
+    padding: 1px 8px;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  ::ng-deep mat-expansion-panel {
+    border-radius: 12px !important;
+  }
+
+  .vehicle-grid {
+    padding: 12px;
   }
 }
